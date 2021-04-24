@@ -8,7 +8,7 @@ from geopy.geocoders import Nominatim
 from geopy.extra.rate_limiter import RateLimiter
 from geopy import distance
 
-df = pd.read_csv('/Users/anaferreira/Downloads/Address_List_100.csv', encoding='UTF8')
+df = pd.read_csv('dir-arquivo-aqui', encoding='UTF8')
 
 df['Street Number'] = df['Street Number'].astype(str)
 
@@ -20,7 +20,7 @@ df['Location'] = df['Full Address'].apply(geocoder)
 df['Latitude'] = df['Location'].apply(lambda loc: loc.latitude if loc else None)
 df['Longitude'] = df['Location'].apply(lambda loc: loc.longitude if loc else None)
 
-df.to_csv('/Users/anaferreira/Downloads/Address_List_100_coded.csv', encoding='UTF8')
+df.to_csv('dir-arquivo-aqui', encoding='UTF8')
 
 #dropar as nans pra plotar no mapa
 df = df.dropna(subset=['Longitude'])
